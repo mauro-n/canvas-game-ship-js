@@ -175,7 +175,7 @@ class Bullet {
 };
 
 //setting game assets
-
+//background('#ffb703');
 
 const habilidades = [];
 const bullets = [];
@@ -214,7 +214,9 @@ canvas.addEventListener('click', (e) => {
 
 function animate() {
     //clear
-    ctx.fillStyle = 'rgba(255, 255, 255)';
+    //ctx.fillStyle = 'rgba(255, 255, 255)';
+    //ctx.fillStyle = '#ffb703';
+    ctx.fillStyle = 'white';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     ship.draw()
