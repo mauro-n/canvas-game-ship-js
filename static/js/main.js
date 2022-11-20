@@ -109,6 +109,7 @@ class Tomb {
     constructor(img, position, w, h){
         this.img = img;
         this.position = position;
+        this.scaling = 2;
         this.width = w;
         this.height = h;
     }
@@ -117,10 +118,10 @@ class Tomb {
         if (!this.img){ return };
         if (this.img.length == 0){ return }
         ctx.drawImage(this.img,
-            this.position.x, 
-            this.position.y,
-            this.width,
-            this.height);
+            this.position.x - this.width/2,
+            this.position.y - this.height/2,
+            this.width * this.scaling,
+            this.height* this.scaling);
     }
 
 
@@ -175,13 +176,12 @@ class Bullet {
 };
 
 //setting game assets
-//background('#ffb703');
 
 const habilidades = [];
 const bullets = [];
 const enemies = [];
-addImg(['django-logo-icon', 'email-round-icon',
-        'express-js-icon', 'icons8-javascript-48',
+addImg(['django-logo-icon', 'express-js-icon', 
+        'icons8-javascript-48',
         'mongodb-icon', 'node-js-icon', 'python-icon',
         'react-js-icon']);
 const deadEnemies = [];
@@ -189,7 +189,9 @@ const deadEnemies = [];
 //setting up canvas
 let raf;
 const canvas = document.querySelector('#stage');
+//canvas.width = window.innerWidth;
 canvas.width = document.querySelector('body').clientWidth - 50;
+//canvas.height = window.innerHeight;
 canvas.height = document.querySelector('html').clientHeight - 50;
 const ctx = canvas.getContext('2d');
 
